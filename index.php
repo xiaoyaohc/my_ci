@@ -305,6 +305,12 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
+    //判断是否来源于命令执行，其中$argv:包含当运行于命令行下时传递给当前脚本的参数的数组。
+    if(isset($argv) && count($argv) >3) {
+        //定义常亮标记是否为计划任务脚本
+        define('APP_CRONTAB', 1);
+    }
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
